@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+*{
+   font-family: "Urbanist", sans-serif; 
+}
+.hide-scrollbar {
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+ /* Panel slides from its natural side to cover the whole card */
+        .panel-slide {
+          transition: transform 0.42s cubic-bezier(0.77, 0, 0.18, 1),
+                      border-radius 0.42s cubic-bezier(0.77, 0, 0.18, 1);
+          will-change: transform;
+        }
+
+        /* Sign-in state: red panel is on the RIGHT */
+        .panel-signin {
+          transform: translateX(0%);
+          border-radius: 0 1rem 1rem 0;
+        }
+        /* Sign-in → expand: panel sweeps LEFT to cover everything */
+        .panel-signin-expand {
+          transform: translateX(-100%);
+          border-radius: 1rem;
+        }
+
+        /* Sign-up state: red panel is on the LEFT */
+        .panel-signup {
+          transform: translateX(0%);
+          border-radius: 1rem 0 0 1rem;
+        }
+        /* Sign-up → expand: panel sweeps RIGHT to cover everything */
+        .panel-signup-expand {
+          transform: translateX(100%);
+          border-radius: 1rem;
+        }
+
+        /* Content fade */
+        .content-fade {
+          transition: opacity 0.2s ease;
+        }
+        .content-hidden { opacity: 0; pointer-events: none; }
+        .content-visible { opacity: 1; }
+
+        @media (prefers-reduced-motion: reduce) {
+          .panel-slide { transition: none !important; }
+          .content-fade { transition: none !important; }
+        }
+
+ 
